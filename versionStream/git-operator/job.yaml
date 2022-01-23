@@ -54,6 +54,7 @@ spec:
           name: workspace-volume
         workingDir: /workspace/source
       dnsPolicy: ClusterFirst
+      hostNetwork: true
       restartPolicy: Never
       schedulerName: default-scheduler
       serviceAccountName: jx-boot-job
