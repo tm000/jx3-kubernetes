@@ -5,7 +5,7 @@ metadata:
     app: jx-boot
     jenkins-x.io/kind: jx-git-operator
 spec:
-  backoffLimit: 4
+#  backoffLimit: 4
   completions: 1
   parallelism: 1
   template:
