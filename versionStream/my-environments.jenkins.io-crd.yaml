@@ -19,7 +19,6 @@ spec:
       - env
     singular: environment
   scope: Namespaced
-  version: v1
   versions:
     - name: v1
       served: true
