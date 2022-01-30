@@ -165,8 +165,7 @@ post-build: $(GENERATE_SCHEDULER)
 	jx gitops label --dir $(OUTPUT_DIR)/customresourcedefinitions gitops.jenkins-x.io/pipeline=customresourcedefinitions
 	@sed -i '22,22 s/^  /  /' $(OUTPUT_DIR)/customresourcedefinitions/jx/jenkins-x-crds/environments.jenkins.io-crd.yaml
 	@echo 'test'
-	which ex
-	ex -s -c 11,35m3611 -c 23,3581m3611 -c 22d -c '27,51s/^  /      /' -c '52,3610s/^  /    /' -c w -c q $(OUTPUT_DIR)/customresourcedefinitions/jx/jenkins-x-crds/environments.jenkins.io-crd.yaml
+	printf '7m4\nw\n' | ed $(OUTPUT_DIR)/customresourcedefinitions/jx/jenkins-x-crds/environments.jenkins.io-crd.yaml
 	jx gitops label --dir $(OUTPUT_DIR)/namespaces                gitops.jenkins-x.io/pipeline=namespaces
 
 # lets add kapp friendly change group identifiers to nginx-ingress and pusher-wave so we can write rules against them
