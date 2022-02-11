@@ -291,9 +291,9 @@ kubectl-apply:
 	@echo "using kubectl to apply resources"
 
 # NOTE be very careful about these 2 labels as getting them wrong can remove stuff in you cluster!
-	cat config-root/customresourcedefinitions/kuberhealthy/kuberhealthy/khchecks.comcast.github.io-crd.yaml
-	cat config-root/customresourcedefinitions/kuberhealthy/kuberhealthy/khjobs.comcast.github.io-crd.yaml
-	cat config-root/customresourcedefinitions/kuberhealthy/kuberhealthy/khstates.comcast.github.io-crd.yaml
+	@cp -f versionStream/my-khchecks.comcast.github.io-crd.yaml $(OUTPUT_DIR)/customresourcedefinitions/kuberhealthy/kuberhealthy/khchecks.comcast.github.io-crd.yaml
+	@cp -f versionStream/my-khjobs.comcast.github.io-crd.yaml $(OUTPUT_DIR)/customresourcedefinitions/kuberhealthy/kuberhealthy/khjobs.comcast.github.io-crd.yaml
+	@cp -f versionStream/my-khstates.comcast.github.io-crd.yaml $(OUTPUT_DIR)/customresourcedefinitions/kuberhealthy/kuberhealthy/khstates.comcast.github.io-crd.yaml
 	kubectl apply $(KUBECTL_APPLY_FLAGS) --prune -l=gitops.jenkins-x.io/pipeline=customresourcedefinitions -R -f $(OUTPUT_DIR)/customresourcedefinitions
 	kubectl apply $(KUBECTL_APPLY_FLAGS) --prune -l=gitops.jenkins-x.io/pipeline=cluster                   -R -f $(OUTPUT_DIR)/cluster
 	kubectl apply $(KUBECTL_APPLY_FLAGS) --prune -l=gitops.jenkins-x.io/pipeline=namespaces                -R -f $(OUTPUT_DIR)/namespaces
