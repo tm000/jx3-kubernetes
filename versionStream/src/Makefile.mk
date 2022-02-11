@@ -294,6 +294,19 @@ kubectl-apply:
 	@cp -f versionStream/my-khchecks.comcast.github.io-crd.yaml $(OUTPUT_DIR)/customresourcedefinitions/kuberhealthy/kuberhealthy/khchecks.comcast.github.io-crd.yaml
 	@cp -f versionStream/my-khjobs.comcast.github.io-crd.yaml $(OUTPUT_DIR)/customresourcedefinitions/kuberhealthy/kuberhealthy/khjobs.comcast.github.io-crd.yaml
 	@cp -f versionStream/my-khstates.comcast.github.io-crd.yaml $(OUTPUT_DIR)/customresourcedefinitions/kuberhealthy/kuberhealthy/khstates.comcast.github.io-crd.yaml
+
+	cat config-root/namespaces/jx/jx-kh-check-health-checks-jx/jx-bot-token-kuberhealthycheck.yaml
+	cat config-root/namespaces/jx/jx-kh-check-health-checks-jx/jx-webhook-events-kuberhealthycheck.yaml
+	cat config-root/namespaces/jx/jx-kh-check-health-checks-jx/jx-webhook-kuberhealthycheck.yaml
+	cat config-root/namespaces/jx/jxboot-helmfile-resources/dev-sourcerepository.yaml
+	cat config-root/namespaces/kuberhealthy/jx-kh-check/jx-pod-status-kuberhealthycheck.yaml
+	cat config-root/namespaces/kuberhealthy/jx-kh-check/jx-secrets-kuberhealthycheck.yaml
+	cat config-root/namespaces/kuberhealthy/kuberhealthy/daemonset-kuberhealthycheck.yaml
+	cat config-root/namespaces/kuberhealthy/kuberhealthy/deployment-kuberhealthycheck.yaml
+	cat config-root/namespaces/kuberhealthy/kuberhealthy/dns-status-internal-kuberhealthycheck.yaml
+	cat config-root/namespaces/kuberhealthy/kuberhealthy/network-connection-check-kuberhealthycheck.yaml
+
+
 	kubectl apply $(KUBECTL_APPLY_FLAGS) --prune -l=gitops.jenkins-x.io/pipeline=customresourcedefinitions -R -f $(OUTPUT_DIR)/customresourcedefinitions
 	kubectl apply $(KUBECTL_APPLY_FLAGS) --prune -l=gitops.jenkins-x.io/pipeline=cluster                   -R -f $(OUTPUT_DIR)/cluster
 	kubectl apply $(KUBECTL_APPLY_FLAGS) --prune -l=gitops.jenkins-x.io/pipeline=namespaces                -R -f $(OUTPUT_DIR)/namespaces
