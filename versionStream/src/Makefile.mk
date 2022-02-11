@@ -164,6 +164,9 @@ post-build: $(GENERATE_SCHEDULER)
 	jx gitops label --dir $(OUTPUT_DIR)/cluster                   gitops.jenkins-x.io/pipeline=cluster
 	jx gitops label --dir $(OUTPUT_DIR)/customresourcedefinitions gitops.jenkins-x.io/pipeline=customresourcedefinitions
 	@cp -f versionStream/my-environments.jenkins.io-crd.yaml $(OUTPUT_DIR)/customresourcedefinitions/jx/jenkins-x-crds/environments.jenkins.io-crd.yaml
+	@cp -f versionStream/my-pipelineactivities.jenkins.io-crd.yaml $(OUTPUT_DIR)/customresourcedefinitions/jx/jenkins-x-crds/pipelineactivities.jenkins.io-crd.yaml
+	@cp -f versionStream/my-releases.jenkins.io-crd.yaml $(OUTPUT_DIR)/customresourcedefinitions/jx/jenkins-x-crds/releases.jenkins.io-crd.yaml
+	@cp -f versionStream/my-sourcerepositories.jenkins.io-crd.yaml $(OUTPUT_DIR)/customresourcedefinitions/jx/jenkins-x-crds/sourcerepositories.jenkins.io-crd.yaml
 	jx gitops label --dir $(OUTPUT_DIR)/namespaces                gitops.jenkins-x.io/pipeline=namespaces
 
 # lets add kapp friendly change group identifiers to nginx-ingress and pusher-wave so we can write rules against them
