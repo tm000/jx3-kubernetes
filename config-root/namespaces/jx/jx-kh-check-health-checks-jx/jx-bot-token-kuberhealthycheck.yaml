@@ -22,6 +22,7 @@ spec:
             memory: 15Mi
           limits:
             cpu: 40m
+        restartPolicy: Never
         env:
           - name: OAUTH_TOKEN
             valueFrom:
@@ -31,4 +32,3 @@ spec:
           - name: GIT_PROVIDER
             value: https://github.com
     terminationGracePeriodSeconds: 60
-    restartPolicy: Never
