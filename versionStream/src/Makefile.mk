@@ -304,11 +304,6 @@ kubectl-apply:
 	@cp -f versionStream/my-deployment-kuberhealthycheck.yaml $(OUTPUT_DIR)/namespaces/kuberhealthy/kuberhealthy/deployment-kuberhealthycheck.yaml
 	@cp -f versionStream/my-dns-status-internal-kuberhealthycheck.yaml $(OUTPUT_DIR)/namespaces/kuberhealthy/kuberhealthy/dns-status-internal-kuberhealthycheck.yaml
 	@cp -f versionStream/my-network-connection-check-kuberhealthycheck.yaml $(OUTPUT_DIR)/namespaces/kuberhealthy/kuberhealthy/network-connection-check-kuberhealthycheck.yaml
-
-	cat config-root/namespaces/jx/jxboot-helmfile-resources/dev-environment.yaml
-	cat config-root/namespaces/jx/jxboot-helmfile-resources/production-environment.yaml
-	cat config-root/namespaces/jx/jxboot-helmfile-resources/staging-environment.yaml
-
 	kubectl apply $(KUBECTL_APPLY_FLAGS) --prune -l=gitops.jenkins-x.io/pipeline=customresourcedefinitions -R -f $(OUTPUT_DIR)/customresourcedefinitions
 	kubectl apply $(KUBECTL_APPLY_FLAGS) --prune -l=gitops.jenkins-x.io/pipeline=cluster                   -R -f $(OUTPUT_DIR)/cluster
 	kubectl apply $(KUBECTL_APPLY_FLAGS) --prune -l=gitops.jenkins-x.io/pipeline=namespaces                -R -f $(OUTPUT_DIR)/namespaces
